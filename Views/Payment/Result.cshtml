@@ -1,0 +1,37 @@
+@model OrderViewModel
+@{
+    ViewData["Title"] = "Pedido";
+}
+<div class="home-content" id="result">
+    @TempData["Data"]
+</div>
+
+<script>
+     window.onload = function(){ 
+        var data =  '@TempData["Data"]'
+        var viewfrom = '@TempData["ViewFrom"]'
+        console.log(data)
+        data = JSON.parse(data.replace(/&quot;/g, '\"'))
+        console.log(data)
+        if(viewfrom == 'Order') {
+            document.getElementById("result").innerHTML = `
+            <div class="ba bw2 br2 b--silver bg-white-40 flex items-center pa4">
+                <ul>
+                    <li>Valor: ${data.Payment.Amount}</li>
+                    <li>Capturado: ${data.Payment.CapturedDate}</li>
+                    <li>Id do Pagamento: ${data.Payment.PaymentId}</li>
+                </ul>
+                <a class="home-button col-sm-3 col-sm-offset-0" href='Cancel/${data.Payment.PaymentId}'>Estornar</a>
+                <a class="home-button col-sm-3 col-sm-offset-0" href='/'>Voltar</a>
+            </div>
+            `
+        } else if(viewfrom == 'Cancel') {
+            document.getElementById("result").innerHTML = `
+            <div class="ba bw2 br2 b--silver bg-white-40 flex items-center pa4">
+                ${data.ReasonMessage}
+                <a class="home-button" href='/'>Voltar</a>
+            </div>
+            `
+        }
+     } 
+</script>

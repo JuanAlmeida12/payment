@@ -1,0 +1,62 @@
+@model OrderViewModel
+@{
+    ViewData["Title"] = "Pedido";
+}
+<div class="home-content">
+    @using (Html.BeginForm())
+    {
+        <div class="ba bw2 pa5 bg-white-40 br2 b--silver flex items-center">
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.amount, new { @class= "f3 white" })
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.amount, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                    @Html.ValidationMessageFor(m => m.amount, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.cardNumber, new { @class= "f3 white" })
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.cardNumber, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                     @Html.ValidationMessageFor(m => m.cardNumber, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.holder, new { @class= "f3 white" })
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.holder, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                    @Html.ValidationMessageFor(m => m.holder, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.expirationDate, new { @class= "f3 white" })
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.expirationDate, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                    @Html.ValidationMessageFor(m => m.expirationDate, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.securityCode, new { @class= "f3 white" })
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.securityCode, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                    @Html.ValidationMessageFor(m => m.securityCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.brand, new { @class= "f3 white" })
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.brand, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                    @Html.ValidationMessageFor(m => m.brand, "", new { @class = "text-danger" })
+                </div>
+                <p>
+                    <input type="submit" class="pa2 br1 ba bw1 b--silver ph4 mt4" value="Realizar Pedido" />
+                </p>
+            </fieldset>
+        </div>
+    }
+</div>

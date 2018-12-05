@@ -1,0 +1,24 @@
+﻿@model HomeForm
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="home-content">
+    <div class="container">
+        <div class="row">
+            <a class="home-button col-sm-3 col-sm-offset-0" asp-area="" asp-controller="Payment" asp-action="Order">Realizar Pedido</a>
+            <div class="pa4 items-center flex ml6 ba bw2 b--silver br2 col-sm-3">
+                <form asp-controller="Payment" asp-action="OrderInfo">
+                    <div class="editor-label">
+                        @Html.LabelFor(m => m.paymentId, new { @class= "f3 white" })
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(m => m.paymentId, new { htmlAttributes = new { @class = "bg-transparent bb bw1 bl-0 bt-0 mb3 hover-bg-moon-gray br--bottom br2 b--silver" } })
+                        @Html.ValidationMessageFor(m => m.paymentId, "", new { @class = "text-danger" })
+                    </div>
+                    <input type="submit"class="home-button ml2"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
