@@ -36,7 +36,6 @@ namespace braspag.Util
 
         public async static Task<string> getOrder(string PaymentId)
         {
-            Console.WriteLine(API_URL + "/" + PaymentId);
             HttpResponseMessage response = await client.GetAsync(API_QUERY + "/" + PaymentId);
             string responseString = await response.Content.ReadAsStringAsync();
             return responseString;

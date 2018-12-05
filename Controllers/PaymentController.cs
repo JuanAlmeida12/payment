@@ -33,10 +33,8 @@ namespace braspag.Controllers
         [HttpPost, ActionName("Order")]
         public async Task<IActionResult> OrderPost(OrderViewModel order)
         {
-            System.Diagnostics.Debug.WriteLine("aaaaaaaa");
             if (!ModelState.IsValid) return View(order);
             string result = await BrasPagUtil.newOrder(order);
-            Console.WriteLine(result);
             TempData["Data"] = result;
             TempData["ViewFrom"] = "Order";
             return RedirectToAction("Result");
