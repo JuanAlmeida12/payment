@@ -23,7 +23,6 @@ namespace braspag.Controllers
 
         public async Task<IActionResult> OrderInfo(HomeForm form)
         {
-            Console.WriteLine("awwww");
             string result = await BrasPagUtil.getOrder(form.paymentId);
             TempData["Data"] = result;
             TempData["ViewFrom"] = "Order";
